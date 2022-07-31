@@ -1,0 +1,90 @@
+---
+title: "condicional"
+author: "leon"
+date: '2022-06-07'
+output: html_document
+---
+```{r}
+altura = 180
+sexo = 1
+
+if ( sexo == 1 ) {
+  formula = (72.7 * altura) - 58
+  'Homem'
+} else {
+  formula = (62.1 * altura) - 44.7
+  'mulher'
+}
+formula
+
+
+```
+
+
+```{r}
+pesoideal = function(sexo = 1, altura = 1) {
+  if (sexo == 1) {
+    peso_ideal = (72.7 * altura) - 58;
+  } else {
+    peso_ideal = (62.1 * altura) - 44.7;
+  }
+  return(peso_ideal)
+}
+
+pesoideal(1,1.8)
+```
+
+
+
+```{r}
+AirPassengers
+ac = 0;
+for (p in AirPassengers) {
+  ac = ac + p;
+}
+ac
+```
+```{r}
+apply(data.frame(AirPassengers), 2,sum)
+```
+
+```{r}
+set.seed(123)
+datadev = data.frame(faixamodelo = factor(1:10), safradev = round(abs(rnorm(10, 20, 2)), 2))
+set.seed(451)
+datapsi = data.frame(faixamodelo = factor(1:10), safra01 = round(abs(rnorm(10, 20, 2)), 2), safra02 = round(abs(rnorm(10, 50, 3)), 2))
+
+datadev$safradevperc = datadev$safradev/sum(datadev$safradev)
+datadev
+
+
+datapsi$safra01perc = datapsi$safra01/sum(datapsi$safra01)
+datapsi$safra02perc = datapsi$safra02/sum(datapsi$safra02)
+datapsi
+
+fcPsi = function(vetor1, vetor2) {
+  psicalc = sum((vetor1 - vetor2) *log(vetor1/vetor2))
+  return(psicalc)
+}
+fcPsi(datadev$safradevperc, datapsi$safra01perc)
+
+fcPsi2 = function(base1, base2,i) {
+  psicalc = sum((base1[,2] - base2[,i]) *log(base1[,2]/base2[,i]))
+  return(psicalc)
+}
+fcPsi2(datadev,datapsi,4)
+```
+
+
+```{r}
+runif(10,0,10)
+
+dunif(5, 0, 10)
+
+punif(5, 0, 10)
+```
+
+
+
+
+

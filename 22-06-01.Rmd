@@ -1,0 +1,105 @@
+---
+title: "teste"
+output: html_document
+date: '2022-06-01'
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r}
+cars
+```
+```{r}
+head(mtcars, n=5)
+```
+```{r}
+tail(cars,n=5)
+```
+```{r cars}
+summary(cars)
+```
+
+## Including Plots
+
+You can also embed plots, for example:
+
+```{r pressure, echo=FALSE}
+plot(cars)
+```
+```{r}
+seq(0,8, by=2)
+```
+```{r}
+rep(c(0,1,2),each =10)
+```
+```{r}
+10:pi
+```
+```{r}
+help(':')
+```
+```{r}
+my_seq = seq.int(0,10,length=30)
+my_seq
+```
+```{r}
+pi:10
+10:pi
+```
+
+
+```{r}
+oi = NA
+oi2 = 0/0
+oi3 = 1/0
+oi4 = NULL
+oi5 = 5
+oi6 = -1/0
+
+is.na(oi)
+is.nan(oi2)
+is.infinite(oi3)
+is.null(oi4)
+is.finite(oi5)
+is.infinite(oi5)
+```
+```{r}
+mtcars[2:4]
+```
+
+
+```{r}
+mtcars[1,0:10]
+```
+
+
+```{r}
+invert = function(lista){
+  return(lista[length(lista):1])
+  
+}
+invert(c(1,2,3,4))
+```
+```{r}
+est = function(lista) {
+  return(c(min(lista),max(lista),median(lista), quantile(lista,probs=c(0,0.25,0.5,0.75,1))))
+}
+est(c(1,2,3,4,5,6,7,8,9,10))
+```
+
+```{r}
+install.packages("tidyverse")
+
+library(tidyverse)
+
+library(dplyr)
+c(1,10) %>% mean()
+``` 
+```{r}
+library(rhs)
+(1:10)/3 |> sum |> mean |> round(digits=1)
+```
+
+
